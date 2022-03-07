@@ -1,6 +1,8 @@
 import logo from './logo.svg';
 import './App.css';
 import React, { useState, useEffect } from 'react';
+import ApiFetch from './components/ApiFetch';
+
 
 function UploadImages() {
   // 現在のstateの値と，それを更新するための関数をペアで返す
@@ -70,6 +72,8 @@ function App() {
 					<li>Upload an image of a receipt</li>
 					<li>You can find how much and what kind of nutritions you take</li>
 				</ol>
+				<ApiFetch />
+
 			</header>
 		</div>
 	);
