@@ -5,6 +5,13 @@ const ApiFetch = () => {
     const [posts, setPosts] = useState([]);
 
     // this function is to-be-implemented!!
+    function postImages() {
+        // axios.post('https://anysweb.co.jp/api/')
+        // .then(res => console.log(res))
+        console.log("Image has been posted");
+    }
+
+    // this function is to-be-implemented!!
     function getNutritionInfo() {
         // setPosts(res.data);
         axios.get('https://jsonplaceholder.typicode.com/posts')
@@ -13,16 +20,10 @@ const ApiFetch = () => {
         });
     }
     
-    function postImages() {
-        // axios.post('https://anysweb.co.jp/api/')
-        // .then(res => console.log(res))
-        console.log("Image has been posted");
-    }
-
-    // useEffect(() => {
-    useEffect(() => {
-        getNutritionInfo();
-        postImages();
+    useEffect(() => 
+        {
+            getNutritionInfo();
+            postImages();
         }
         , []);
     
