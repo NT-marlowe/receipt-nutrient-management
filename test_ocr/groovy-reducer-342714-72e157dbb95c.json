@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "groovy-reducer-342714",
+  "private_key_id": "72e157dbb95c596aba464054808a9534de4a2c8b",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQCYRZw6aZ6FQFdE\nVNv5aC6XSl0UnUHuRzGunguGFQ3IhZZdD+qI0N0hXzPF4DbfnfRrToV5hVOYp8w6\nmLlrgYW3Oq3+SgSugHG9dRa7laz4sr67s09piQnuxDsVlsLJnO8bppe/jV2zd0je\nEf1hzmh+pmMsI3JTi5ThqRHwU5jlxROqwrTeIq774bfre0UNLYYvPBCELiii01O+\ngyFYeXIXMjF09wUoc2umX/iqPVKfJVvBIklec/zHBgIE+sbGKa6JkTii1mttdNbI\n1M8XZmQDQ4FKEsKfvouIhRFwmkQPKDvcPzLbEldFuaINpjali2qRNYuWQDqEPWj8\n0vRv8YmzAgMBAAECggEAGmCAigvOtmVpWIBcpIz7+SAcFJyTFawGeqmM9HqEKzac\nz90Ycv+/Nm8v4DiRONY7RzVQYLcMPpbehU38XJeQqqdDCZgXzISab0evmun4DxKj\ngI80k+L1sgMS+w/lCRiiwMbwZXGfCB4DJNi37C/doQbAih5PyRIWRarMXTWV+EMR\nSP8dsClil52anHxxVSTU8KREuYneLcrjUmSdkeezFo33xjE7vsNK4vy9Zq1fR3g+\n27RLY23BBg/d2XS0ZcGes2kBN9K4XHipO3IlXXfsD5O+P5fPP8Q8V+WaiIrrTGQJ\nbGCX26oybKw0ZxTZ1/Ne34fLo3oYfjJFj+WLuMMMXQKBgQDN8IcLijZWTCHrv23o\nUIu9nu/tvWY63gBJI2S+rLudNc+SGMBDW1DQgN6lgZNF+Tz+UDt7e5aq/82UAuvp\nK/zW2Of5OC3mIQ9464HQFm8wQA3YsW4BAsLH3xIvcSlnBbmHacquFWf8+LyvWCWU\nenHYVgfdq8cCYgrhdKLIdu4LRwKBgQC9SWIgs6h0IUX0SWN/FwgXY1yT7+7M3Via\nY+re3XVbDx2W2AwvEWHYLAq2vfCTaTmMmw44P/5EJpwdS0Ek9oGTVCrRVLfrEvAU\nOYurNHxzN/HSDu3G7u5MppjtKCUWX/A22zMybLQ9K0AOM8+mlNUc80jwSTZkihdL\nWm58ff8sNQKBgFAyF1S+GNTYRulYHYO3QgOwjfxFojbQVsokd0ntWA4rc06QRuaz\n+6+GT62h3OkF2uOp+M/oW87xWGwICzg9AfPkeclKQE16mFzdUSroYZonh3zX819/\nZLySuLEy3w2YZBxAbUYHXfxcHJYnvFKqsASv09ZV22SpK1WKpw1rit1nAoGAPDSU\nFoyuPsm6g1m4YNsFgtLixlchYF3i6bBwKxTLV/w10B3Fuk7QDT7s5XUCiRCF8nf7\nDN8l061oKFUgUk5ppl+2AsDsgsOSQwyOpRTbpJYdv09qR8UFXLH8oCoNqdE4CWqt\nHRPAPFh+VkYafQSHyF6FS5At0cquYBRSYhx9RiUCgYA0OPGPBGzFxiUwiSNfgG2F\nfLMUr/ULWmdTO4MBw1KGFxP2lGjQRi0/YeSK690sjdJHWYEmKsVs9NM3tOowNN1s\n3hySKLhOC5lnN7KwnhWYbryYLEmKwZx15PVs6LnYb2wN/MSWStU2/e6EtxetxCNi\n1GvvbEYmFRhmlv5BuZTaeg==\n-----END PRIVATE KEY-----\n",
+  "client_email": "ocrtest@groovy-reducer-342714.iam.gserviceaccount.com",
+  "client_id": "100125986175743364659",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/ocrtest%40groovy-reducer-342714.iam.gserviceaccount.com"
+}
