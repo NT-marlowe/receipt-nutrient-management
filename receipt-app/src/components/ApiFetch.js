@@ -26,7 +26,6 @@ const ApiFetch = () => {
             postImages();
         }
         , []);
-    f
         
     // useEffect(() => {
     //     axios.get("http://localhost:8000/api/todo").then((res) => {
