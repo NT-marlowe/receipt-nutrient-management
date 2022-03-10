@@ -1,15 +1,18 @@
 import "./App.css";
 import React from "react";
-// import { Route, Switch } from "react-router-dom";
-import ApiFetch from "./components/ApiFetch";
-import UploadImages from "./components/UploadImages";
-import Layout from "./components/layout/Layout"
+import { Route, Switch } from "react-router-dom";
+// import ApiFetch from "./components/receipts/ApiFetch";
+// import UploadImages from "./components/receipts/UploadImages";
+import HowToUsePage from "./pages/HowToUsePage";
+import ImageUploadPage from "./pages/ImageUploadPage";
+import ReceiptHistoryPage from "./pages/ReceiptHistoryPage";
+import Layout from "./components/layout/Layout";
 
 function App() {
   return (
     <Layout>
-      <div className="App">
-        <header className="App-header">
+      {/* <div className="App"> */}
+      {/* <header className="App-header">
           <h1>Receipt Nutriton Management</h1>
           <b>
             GitHub Repositry is &nbsp;
@@ -22,16 +25,22 @@ function App() {
               Here
             </a>
           </b>
-
-          <UploadImages />
-          <h2>How to Use</h2>
-          <ol>
-            <li>Upload an image of a receipt</li>
-            <li>You can find how much and what kind of nutritions you take</li>
-          </ol>
-          <ApiFetch />
-        </header>
-      </div>
+          <HowToUsePage />
+          <UploadImages /> */}
+      {/* <ApiFetch /> */}
+      {/* </header>
+      </div> */}
+      <Switch>
+        <Route path="/" exact>
+          <HowToUsePage />
+        </Route>
+        <Route path="/new-image">
+          <ImageUploadPage />
+        </Route>
+        <Route path='/history'>
+          <ReceiptHistoryPage />
+        </Route>
+      </Switch>
     </Layout>
   );
 }
