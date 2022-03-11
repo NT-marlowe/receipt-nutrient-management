@@ -1,28 +1,29 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 import NewImageForm from "../components/receipts/NewImageForm";
 
 function NewMeetupPage() {
-  // const history = useHistory();
-  // function handleAddMeetup(meetupData) {
-  //   fetch(
-  //     "https://react-get-started-7f410-default-rtdb.firebaseio.com/meetups.json",
-  //     {
-  //       method: "POST",
-  //       body: JSON.stringify(meetupData),
-  //       headers: {
-  //         "Content-type": "application/json",
-  //       },
-  //     }
-  //   ).then(() => {
-  //     history.replace("./");
-  //   });
-  // }
+  const history = useHistory();
+  function handleAddMeetup(meetupData) {
+    fetch(
+      "https://react-get-started-7f410-default-rtdb.firebaseio.com/meetups.json",
+      {
+        method: "POST",
+        body: JSON.stringify(meetupData),
+        headers: {
+          "Content-type": "application/json",
+        },
+      }
+    ).then(() => {
+      history.replace("./");
+    });
+  }
 
   return (
     <section>
       <h1>Upload Receipt</h1>
-      {/* <NewMeetupForm onAddMeetup={handleAddMeetup} /> */}
-      <NewImageForm />
+      <NewImageForm onAddMeetup={handleAddMeetup} />
+      {/* <NewImageForm /> */}
     </section>
   );
 }
