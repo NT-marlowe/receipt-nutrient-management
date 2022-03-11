@@ -1,8 +1,6 @@
 import "./App.css";
 import React from "react";
 import { Route, Switch } from "react-router-dom";
-// import ApiFetch from "./components/receipts/ApiFetch";
-// import UploadImages from "./components/receipts/UploadImages";
 import HowToUsePage from "./pages/HowToUsePage";
 import ImageUploadPage from "./pages/ImageUploadPage";
 import ReceiptHistoryPage from "./pages/ReceiptHistoryPage";

@@ -14,16 +14,16 @@ function MainNavigation() {
       <nav>
         <ul>
           <li>
-            <Link to="/">All Meetup</Link>
+            <Link to="/">How To Use</Link>
+          </li>
+          <li>
+            <Link to="/new-image">Upload</Link>
           </li>
           <li>
             <Link to="/history">
-              My Favorites
+              History
               {/* <span className={classes.badge}>{favoritesCtx.totalFavorites}</span> */}
             </Link>
-          </li>
-          <li>
-            <Link to="/new-image">New Meetup</Link>
           </li>
         </ul>
       </nav>

@@ -3,43 +3,37 @@ import Card from "../ui/Card";
 import classes from "./NewImageForm.module.css";
 
 function NewMeetupForm(props) {
-  const titleInputRef = useRef();
+  const dateInputRef = useRef();
   const imageInputRef = useRef();
-  const addressInputRef = useRef();
   const descriptionInputRef = useRef();
 
   function handleSubmit(event) {
     event.preventDefault();
     
-    const enteredTitle = titleInputRef.current.value;
+    const enteredDate = dateInputRef.current.value;
     const enteredImage = imageInputRef.current.value;
-    const enteredAddress = addressInputRef.current.value;
     const enteredDescription = descriptionInputRef.current.value;
 
     const meetupData = {
-      title: enteredTitle,
+      date: enteredDate,
       image: enteredImage,
-      address: enteredAddress,
       description: enteredDescription,
     }
     
     // props.onAddMeetup(meetupData);
     console.log(meetupData);
   }
+
   return (
     <Card>
       <form className={classes.form} onSubmit={handleSubmit}>
         <div className={classes.control}>
-          <label htmlFor="title">Meetup Title</label>
-          <input type="text" required id="title" ref={titleInputRef} />
+          <label htmlFor="title">Date</label>
+          <input type="date" required id="date" ref={dateInputRef} />
         </div>
         <div className={classes.control}>
-          <label htmlFor="image">Meetup Image</label>
+          <label htmlFor="image">Receipt Image</label>
           <input type="url" required id="image" ref={imageInputRef} />
-        </div>
-        <div className={classes.control}>
-          <label htmlFor="address">Address</label>
-          <input type="text" required id="address" ref={addressInputRef} />
         </div>
         <div className={classes.control}>
           <label htmlFor="description">Description</label>
@@ -51,7 +45,7 @@ function NewMeetupForm(props) {
           ></textarea>
         </div>
         <div className={classes.action}>
-          <button>Add Meetup</button>
+          <button>Upload Receipt</button>
         </div>
       </form>
     </Card>
