@@ -4,23 +4,35 @@ import classes from "./NewImageForm.module.css";
 
 function NewMeetupForm(props) {
   const dateInputRef = useRef();
-  const imageInputRef = useRef();
+  // const imageInputRef = useRef();
+  const fileInputRef = React.createRef();
   const descriptionInputRef = useRef();
 
   function handleSubmit(event) {
     event.preventDefault();
-    
-    const enteredDate = dateInputRef.current.value;
-    const enteredImage = imageInputRef.current.value;
-    const enteredDescription = descriptionInputRef.current.value;
 
-    const imageData = {
-      date: enteredDate,
-      image: enteredImage,
-      description: enteredDescription,
+    const enteredDate = dateInputRef.current.value;
+    // const enteredImage = imageInputRef.current.value;
+    const enteredImage = fileInputRef.current.files[0];
+    const enteredDescription = descriptionInputRef.current.value;
+    // const imageData = {
+    //   date: enteredDate,
+    //   image: enteredImage,
+    //   description: enteredDescription,
+    // };
+    // 
+    const metaData = {
+      data: enteredDate,
+      description: enteredDescription
     }
-    
-    props.onAddImage(imageData);
+
+    const submitData = new FormData();
+    submitData.append("formData", JSON.stringify(metaData));
+    submitData.append("image", enteredImage);
+
+    props.onAddImage(submitData);
+    // console.log(submitData.get("formData"));
+    // console.log(submitData.get("image"));
   }
 
   return (
@@ -32,7 +44,14 @@ function NewMeetupForm(props) {
         </div>
         <div className={classes.control}>
           <label htmlFor="image">Receipt Image</label>
-          <input type="file" required id="image" ref={imageInputRef} />
+          <input
+            type="file"
+            required
+            id="image"
+            // ref={imageInputRef}
+            ref={fileInputRef}
+            accept="image/*"
+          />
         </div>
         <div className={classes.control}>
           <label htmlFor="description">Description</label>

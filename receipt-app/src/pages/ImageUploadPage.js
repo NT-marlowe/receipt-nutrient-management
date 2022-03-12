@@ -1,22 +1,38 @@
+import axios from "axios";
 import React from "react";
 import { useHistory } from "react-router-dom";
 import NewImageForm from "../components/receipts/NewImageForm";
 
-function NewMeetupPage() {
+function ImageUploadPage() {
   const history = useHistory();
-  function handleAddImage(imageData) {
-    fetch(
-      "https://react-get-started-7f410-default-rtdb.firebaseio.com/meetups.json",
-      {
-        method: "POST",
-        body: JSON.stringify(imageData),
-        headers: {
-          "Content-type": "application/json",
-        },
-      }
-    ).then(() => {
-      history.replace("./");
-    });
+
+  function handleAddImage(submitData) {
+    // fetch(
+    //   "https://react-get-started-7f410-default-rtdb.firebaseio.com/meetups.json",
+    //   {
+    //     method: "POST",
+    //     body: JSON.stringify(submitData),
+    //     headers: {
+    //       // "Content-type": "application/json",
+    //       "Content-type": "multipart/form-data",
+    //     },
+    //   }
+    // ).then(() => {
+    //   history.replace("./");
+    // });
+    axios
+      .post(
+        "http://localhost:8000/api/upload",
+        submitData,
+        {
+          headers: {
+            "Content-type": "multipart/form-data",
+          },
+        }
+      )
+      .then(() => {
+        history.replace("./");
+      });
   }
 
   return (
@@ -28,4 +44,4 @@ function NewMeetupPage() {
   );
 }
 
-export default NewMeetupPage;
+export default ImageUploadPage;

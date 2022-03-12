@@ -9,25 +9,6 @@ import Layout from "./components/layout/Layout";
 function App() {
   return (
     <Layout>
-      {/* <div className="App"> */}
-      {/* <header className="App-header">
-          <h1>Receipt Nutriton Management</h1>
-          <b>
-            GitHub Repositry is &nbsp;
-            <a
-              className="App-link"
-              href="https://github.com/NT-marlowe/receipt-nutrient-management"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Here
-            </a>
-          </b>
-          <HowToUsePage />
-          <UploadImages /> */}
-      {/* <ApiFetch /> */}
-      {/* </header>
-      </div> */}
       <Switch>
         <Route path="/" exact>
           <HowToUsePage />
