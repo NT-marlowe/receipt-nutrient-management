@@ -4,12 +4,12 @@ import NewImageForm from "../components/receipts/NewImageForm";
 
 function NewMeetupPage() {
   const history = useHistory();
-  function handleAddMeetup(meetupData) {
+  function handleAddImage(imageData) {
     fetch(
       "https://react-get-started-7f410-default-rtdb.firebaseio.com/meetups.json",
       {
         method: "POST",
-        body: JSON.stringify(meetupData),
+        body: JSON.stringify(imageData),
         headers: {
           "Content-type": "application/json",
         },
@@ -22,7 +22,7 @@ function NewMeetupPage() {
   return (
     <section>
       <h1>Upload Receipt</h1>
-      <NewImageForm onAddMeetup={handleAddMeetup} />
+      <NewImageForm onAddImage={handleAddImage} />
       {/* <NewImageForm /> */}
     </section>
   );

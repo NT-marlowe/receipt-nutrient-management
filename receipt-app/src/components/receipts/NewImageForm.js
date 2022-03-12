@@ -14,13 +14,13 @@ function NewMeetupForm(props) {
     const enteredImage = imageInputRef.current.value;
     const enteredDescription = descriptionInputRef.current.value;
 
-    const meetupData = {
+    const imageData = {
       date: enteredDate,
       image: enteredImage,
       description: enteredDescription,
     }
     
-    props.onAddMeetup(meetupData);
+    props.onAddImage(imageData);
   }
 
   return (
