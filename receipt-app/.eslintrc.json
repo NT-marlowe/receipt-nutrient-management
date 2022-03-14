@@ -1,0 +1,10 @@
+{
+  "extends": ["eslint:recommended"],
+  "plugins": [],
+  "parserOptions": {},
+  "env": {"browser": true},
+  "globals": {},
+  "rules": {
+    "react/react-in-jsx-scope": "off"
+  }
+}
