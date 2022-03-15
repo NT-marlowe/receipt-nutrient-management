@@ -3,11 +3,13 @@ import io
 import os
 from urllib import response
 
+from culc import culculation
+
 from google.cloud import vision
 
 client = vision.ImageAnnotatorClient()
 
-file_name = os.path.abspath('./sample.png')
+file_name = os.path.abspath('./sample2.png')
 
 with io.open(file_name, 'rb') as image_file:
     content = image_file.read()
@@ -28,3 +30,5 @@ for page in response.full_text_annotation.pages:
                 ])
 
 print(output_text)
+
+print(culculation(output_text))
