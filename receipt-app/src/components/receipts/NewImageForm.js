@@ -4,8 +4,6 @@ import classes from "./NewImageForm.module.css";
 
 function NewMeetupForm(props) {
   const dateInputRef = useRef();
-  // const imageInputRef = useRef();
-  const fileInputRef = React.createRef();
   const descriptionInputRef = useRef();
   let base64Txt = "";
 
@@ -22,7 +20,6 @@ function NewMeetupForm(props) {
     event.preventDefault();
 
     const enteredDate = dateInputRef.current.value;
-    // const enteredImage =fileInputRef.current.files[0];
     const enteredDescription = descriptionInputRef.current.value;
 
     const formData = {
@@ -32,7 +29,6 @@ function NewMeetupForm(props) {
     };
 
     props.onAddImage(formData);
-    // console.log(formData);
   }
 
   return (
@@ -48,8 +44,6 @@ function NewMeetupForm(props) {
             type="file"
             required
             id="image"
-            // ref={imageInputRef}
-            ref={fileInputRef}
             accept="image/*"
             onChange={onChange}
           />
