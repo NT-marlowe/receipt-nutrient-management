@@ -4,6 +4,7 @@ import classes from "./NewImageForm.module.css";
 
 function NewMeetupForm(props) {
   const dateInputRef = useRef();
+
   const descriptionInputRef = useRef();
   let base64Txt = "";
 
@@ -20,6 +21,7 @@ function NewMeetupForm(props) {
     event.preventDefault();
 
     const enteredDate = dateInputRef.current.value;
+
     const enteredDescription = descriptionInputRef.current.value;
 
     const formData = {
