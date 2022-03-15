@@ -15,6 +15,7 @@ const getReceiptHistory = () => {
   return histories;
 };
 
+
 function ReceiptHistoryPage() {
   return (
     <section>

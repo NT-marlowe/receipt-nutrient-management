@@ -4,35 +4,33 @@ import classes from "./NewImageForm.module.css";
 
 function NewMeetupForm(props) {
   const dateInputRef = useRef();
-  // const imageInputRef = useRef();
-  const fileInputRef = React.createRef();
+
   const descriptionInputRef = useRef();
+  let base64Txt = "";
+
+  const onChange = (event) => {
+    const file = event.target.files[0];
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      base64Txt = e.target.result.replace(/data:.*\/.*;base64,/, "");
+    };
+    reader.readAsDataURL(file);
+  };
 
   function handleSubmit(event) {
     event.preventDefault();
 
     const enteredDate = dateInputRef.current.value;
-    // const enteredImage = imageInputRef.current.value;
-    const enteredImage = fileInputRef.current.files[0];
+
     const enteredDescription = descriptionInputRef.current.value;
-    // const imageData = {
-    //   date: enteredDate,
-    //   image: enteredImage,
-    //   description: enteredDescription,
-    // };
-    // 
-    const metaData = {
-      data: enteredDate,
-      description: enteredDescription
-    }
 
-    const submitData = new FormData();
-    submitData.append("formData", JSON.stringify(metaData));
-    submitData.append("image", enteredImage);
+    const formData = {
+      date: enteredDate,
+      base64Txt: base64Txt,
+      description: enteredDescription,
+    };
 
-    props.onAddImage(submitData);
-    // console.log(submitData.get("formData"));
-    // console.log(submitData.get("image"));
+    props.onAddImage(formData);
   }
 
   return (
@@ -48,9 +46,8 @@ function NewMeetupForm(props) {
             type="file"
             required
             id="image"
-            // ref={imageInputRef}
-            ref={fileInputRef}
             accept="image/*"
+            onChange={onChange}
           />
         </div>
         <div className={classes.control}>
