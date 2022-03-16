@@ -1,9 +1,9 @@
 import React from "react";
 
-function HowToUsePage() {
+function SummaryPage() {
   return (
     <div>
-      <h2>How to Use</h2>
+      <h2>Summary</h2>
       <ol>
         <li>Upload an image of a receipt</li>
         <li>You can find how much and what kind of nutritions you take</li>
@@ -12,4 +12,4 @@ function HowToUsePage() {
   );
 }
 
-export default HowToUsePage;
+export default SummaryPage;
