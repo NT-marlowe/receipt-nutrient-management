@@ -9,7 +9,7 @@ from google.cloud import vision
 
 client = vision.ImageAnnotatorClient()
 
-file_name = os.path.abspath('./sample2.png')
+file_name = os.path.abspath('./sample.jpg')
 
 with io.open(file_name, 'rb') as image_file:
     content = image_file.read()
