@@ -8,7 +8,7 @@ const ReceiptHistoryList = (props) => {
       {/* {props.histories.map((history) => (
         <ReceiptHistoryItem id={history.id} />
       ))} */}
-      <lo>hjoge</lo>
+      hjoge
     </ul>
   );
 };
