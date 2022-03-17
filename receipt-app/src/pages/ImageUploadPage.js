@@ -33,7 +33,7 @@ const ImageUploadPage = () => {
         }
       )
       .then((response) => {
-        console.log(response);
+        console.log(response.data);
         alert("Image was uploaded successfully!");
         history.replace("./");
       });
