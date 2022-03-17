@@ -29,7 +29,7 @@ function NewMeetupForm(props) {
       base64Txt: base64Txt,
       description: enteredDescription,
     };
-
+    // console.log(JSON.stringify(formData));
     props.onAddImage(formData);
   }
 
