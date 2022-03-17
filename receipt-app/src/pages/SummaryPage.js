@@ -1,5 +1,5 @@
 import React from "react";
-import NutritionGraph from "../components/NutritionGraph";
+import NutritionGraph from "../components/nutrition/NutritionGraph";
 
 const SummaryPage = () => {
   return (
