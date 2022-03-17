@@ -1,5 +1,4 @@
 import base64
-from django.http import JsonResponse
 from fastapi import FastAPI, File, UploadFile
 import json
 from fastapi.staticfiles import StaticFiles
@@ -13,6 +12,7 @@ import os
 from urllib import response
 from fastapi.responses import JSONResponse
 from culc import culculation
+import uvicorn
 
 from google.cloud import vision
 
@@ -23,7 +23,7 @@ client = vision.ImageAnnotatorClient()
 file_name = os.path.abspath('./sample.jpg')
 
 
-app.mount("/static", StaticFiles(directory="static"), name="static")
+#app.mount("/static", StaticFiles(directory="static"), name="static")
 
 class Body(BaseModel):
     base64Txt: str
@@ -59,4 +59,7 @@ def receiveimg(body: Body):
     os.remove("./sample.jpg")
     n_dict = culculation(output_text)
 
-    return JsonResponse(n_dict)
+    return JSONResponse(n_dict)
+
+if __name__ == "__main__":
+    uvicorn.run(app)
