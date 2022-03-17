@@ -1,5 +1,6 @@
 import base64
 from fastapi import FastAPI, File, UploadFile
+from fastapi.middleware.cors import CORSMiddleware
 import json
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
@@ -19,6 +20,22 @@ from google.cloud import vision
 
 app = FastAPI()
 client = vision.ImageAnnotatorClient()
+origins = [
+    "http://localhost",
+    "http://localhost:8080",
+    'http://localhost:8000',
+    'http://localhost:3000',
+    'http://localhost:3000/new-image',
+]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 
 file_name = os.path.abspath('./sample.jpg')
 
@@ -26,8 +43,8 @@ file_name = os.path.abspath('./sample.jpg')
 #app.mount("/static", StaticFiles(directory="static"), name="static")
 
 class Body(BaseModel):
+    date: str
     base64Txt: str
-    date: int
     description: str
 
 @app.post('/uploadimg/')
@@ -59,7 +76,7 @@ def receiveimg(body: Body):
     os.remove("./sample.jpg")
     n_dict = culculation(output_text)
 
-    return JSONResponse(n_dict)
+    return JSONResponse(content=n_dict)
 
 if __name__ == "__main__":
     uvicorn.run(app)

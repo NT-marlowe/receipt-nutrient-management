@@ -1,6 +1,7 @@
 from dict import nutrition_facts
 def culculation(text):
-    nutrition = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    # nutrition = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    nutrition = [0] * 29
     for k, v in nutrition_facts.items():
         if k in text:
             for i in range(len(v)):

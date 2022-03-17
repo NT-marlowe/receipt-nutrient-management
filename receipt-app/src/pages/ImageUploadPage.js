@@ -22,15 +22,18 @@ const ImageUploadPage = () => {
     // });
     axios
       .post(
-        "https://react-get-started-7f410-default-rtdb.firebaseio.com/meetups.json",
-        JSON.stringify(formData),
+        // "https://react-get-started-7f410-default-rtdb.firebaseio.com/meetups.json",
+        "http://127.0.0.1:8000/uploadimg/",
+        // JSON.stringify(formData),
+        formData,
         {
           headers: {
-            "Content-type": "application/json",
+            "Content-Type": "application/json",
           },
         }
       )
-      .then(() => {
+      .then((response) => {
+        console.log(response.data);
         alert("Image was uploaded successfully!");
         history.replace("./");
       });
