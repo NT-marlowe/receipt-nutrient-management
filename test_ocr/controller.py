@@ -117,12 +117,12 @@ def viewsummery():
         count += 1
     
     summery = {
-        'protein':protein_score//count,
-        'carbon':carbon_score//count,
-        'fat':fat_score//count,
-        'mineral':mineral_score//count,
-        'vitamin':vitamin_score//count,
-        'fiber':fiber_score//count,
+        'protein':protein_score/count,
+        'carbon':carbon_score/count,
+        'fat':fat_score/count,
+        'mineral':mineral_score/count,
+        'vitamin':vitamin_score/count,
+        'fiber':fiber_score/count,
     }
     return JSONResponse(summery)
 
