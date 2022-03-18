@@ -12,9 +12,12 @@ import io
 import os
 from urllib import response
 from fastapi.responses import JSONResponse
+from starlette.responses import RedirectResponse
 from culc import culculation
 import uvicorn
-
+import db
+from  models import Receipt
+from datetime import datetime
 from google.cloud import vision
 
 
@@ -74,9 +77,55 @@ def receiveimg(body: Body):
                         symbol.text for symbol in word.symbols
                     ])
     os.remove("./sample.jpg")
-    n_dict = culculation(output_text)
+    n_list = culculation(output_text)
+    date = datetime.strptime(Body.date, '%Y-%m-%d %H:%M:%S')
+    protein = n_list[0]
+    carbon = n_list[1]
+    fat = n_list[2]
+    mineral = n_list[3]
+    vitamin = n_list[4]
+    fiber = n_list[5]
+    description = Body.description
+    
+    receipt = Receipt(date, protein, carbon, fat, mineral, vitamin, fiber, description)
+    db.session.add(receipt)
+    db.session.commit()
+    db.session.close()
 
-    return JSONResponse(content=n_dict)
+
+
+
+@app.get('/summary/')
+def viewsummery():
+    receipt = db.session.query(Receipt).all()
+    db.session.close()
+    protein_score = 0
+    carbon_score = 0
+    fat_score = 0
+    mineral_score = 0
+    vitamin_score = 0
+    fiber_score = 0
+    count = 0
+    for r in receipt:
+        protein_score += r.protein
+        carbon_score += r.carbon
+        fat_score += r.fat
+        mineral_score += r.mineral
+        vitamin_score += r.vitamin
+        fiber_score += r.fiber
+        count += 1
+    
+    summary = {
+        'protein':protein_score/count,
+        'carbon':carbon_score/count,
+        'fat':fat_score/count,
+        'mineral':mineral_score/count,
+        'vitamin':vitamin_score/count,
+        'fiber':fiber_score/count,
+    }
+    return JSONResponse(summary)
+
+
 
 if __name__ == "__main__":
     uvicorn.run(app)
