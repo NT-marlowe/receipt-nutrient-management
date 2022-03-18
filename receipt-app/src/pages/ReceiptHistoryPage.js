@@ -15,12 +15,24 @@ const getReceiptHistory = () => {
   return histories;
 };
 
-
 function ReceiptHistoryPage() {
+  const [histories, setHistories] = useState([]);
+
+  useEffect(() => {
+    setHistories(getReceiptHistory());
+  }, []);
+
   return (
     <section>
       <h1>Receipt History</h1>
-      <ReceiptHistoryList histories={getReceiptHistory} />
+      {histories.length > 0 ? (
+        <ReceiptHistoryList histories={histories} />
+      ) : (
+        <div>
+          <p>No receipt is uploaded.</p>
+          <p>Let's upload now!</p>
+        </div>
+      )}
     </section>
   );
 }
