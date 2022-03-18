@@ -106,7 +106,7 @@ def viewsummery():
     mineral_score = 0
     vitamin_score = 0
     fiber_score = 0
-    
+    count = 0
     for r in receipt:
         protein_score += r.protein
         carbon_score += r.carbon
@@ -114,14 +114,15 @@ def viewsummery():
         mineral_score += r.mineral
         vitamin_score += r.vitamin
         fiber_score += r.fiber
+        count += 1
     
     summery = {
-        'protein':protein_score,
-        'carbon':carbon_score,
-        'fat':fat_score,
-        'mineral':mineral_score,
-        'vitamin':vitamin_score,
-        'fiber':fiber_score,
+        'protein':protein_score//count,
+        'carbon':carbon_score//count,
+        'fat':fat_score//count,
+        'mineral':mineral_score//count,
+        'vitamin':vitamin_score//count,
+        'fiber':fiber_score//count,
     }
     return JSONResponse(summery)
 
