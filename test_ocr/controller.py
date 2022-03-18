@@ -92,11 +92,10 @@ def receiveimg(body: Body):
     db.session.commit()
     db.session.close()
 
-    return RedirectResponse('/semmery/')
 
 
 
-@app.get('/summery/')
+@app.get('/summary/')
 def viewsummery():
     receipt = db.session.query(Receipt).all()
     db.session.close()
@@ -116,7 +115,7 @@ def viewsummery():
         fiber_score += r.fiber
         count += 1
     
-    summery = {
+    summary = {
         'protein':protein_score/count,
         'carbon':carbon_score/count,
         'fat':fat_score/count,
@@ -124,7 +123,7 @@ def viewsummery():
         'vitamin':vitamin_score/count,
         'fiber':fiber_score/count,
     }
-    return JSONResponse(summery)
+    return JSONResponse(summary)
 
 
 
