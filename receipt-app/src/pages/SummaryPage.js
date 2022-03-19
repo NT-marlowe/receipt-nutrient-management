@@ -12,7 +12,8 @@ const dummy_info = {
 };
 
 const SummaryPage = () => {
-  // const newSummary = fetchNutritionSummary();
+  const newSummary = fetchNutritionSummary();
+  console.log(newSummary);
   return (
     <div>
       <h1>Summary</h1>
@@ -20,8 +21,8 @@ const SummaryPage = () => {
         <li>Upload an image of a receipt</li>
         <li>You can find how much and what kind of nutritions you take</li>
       </ol>
-      <NutritionGraph data={dummy_info} />
-      {/* <NutritionGraph data={newSummary} /> */}
+      {/* <NutritionGraph data={dummy_info} /> */}
+      <NutritionGraph data={newSummary} />
     </div>
   );
 };

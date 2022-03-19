@@ -3,7 +3,9 @@ import axios from "axios";
 const fetchNutritionSummary = () => {
   let jsonData;
   axios
-    .get("http://127.0.0.1:8000/fetch-summary/")
+    .get("http://127.0.0.1:8000/summary/", {
+      withCredentials: true,
+    })
     .then((response) => {
       jsonData = response.data;
     })

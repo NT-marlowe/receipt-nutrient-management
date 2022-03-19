@@ -1,5 +1,5 @@
 import React from "react";
-import classes from "./ReceiptHistoryItem.modlue.css";
+import classes from "./ReceiptHistoryItem.module.css";
 import Card from "../ui/Card";
 
 const ReceiptHistoryItem = (props) => {

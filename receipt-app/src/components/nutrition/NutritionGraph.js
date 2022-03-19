@@ -40,6 +40,9 @@ const options = {
 };
 
 const NutritionGraph = (props) => {
+  if (props !== null) {
+    return <p>loading...</p>;
+  }
   const labels = Object.keys(props.data);
   const data = {
     labels,
