@@ -28,12 +28,14 @@ origins = [
     "http://localhost:8080",
     'http://localhost:8000',
     'http://localhost:3000',
-    'http://localhost:3000/new-image',
+    'http://localhost:8000/uploadimg',
+    'http://localhost:8000/summary',
 ]
 
 app.add_middleware(
     CORSMiddleware,
     allow_origins=origins,
+    # allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],

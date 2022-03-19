@@ -23,6 +23,7 @@ class Receipt(Base):
     fiber           ;食物繊維のスコア
     description     :概要
     """
+    __tablename__ = 'receipt'
     id = Column(
         'id',
         INTEGER(unsigned=True),
@@ -30,7 +31,7 @@ class Receipt(Base):
         autoincrement=True,
     )
     
-    date = deadline = Column(
+    date = Column(
         'date',
         DateTime,
         default=None,
