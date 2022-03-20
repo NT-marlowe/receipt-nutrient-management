@@ -7,19 +7,6 @@ const ImageUploadPage = () => {
   const history = useHistory();
 
   const handleAddImage = (formData) => {
-    // fetch(
-    //   "https://react-get-started-7f410-default-rtdb.firebaseio.com/meetups.json",
-    //   {
-    //     method: "POST",
-    //     body: JSON.stringify(formData),
-    //     headers: {
-    //       "Content-type": "application/json",
-    //       // "Content-type": "multipart/form-data",
-    //     },
-    //   }
-    // ).then(() => {
-    //   history.replace("./");
-    // });
     axios
       .post(
         // "https://react-get-started-7f410-default-rtdb.firebaseio.com/meetups.json",

@@ -1,10 +1,11 @@
-from datetime import datetime
+import datetime
 
 from db import Base
 
 from sqlalchemy import Column, String, DateTime, ForeignKey
 from sqlalchemy.sql.functions import current_timestamp
 from sqlalchemy.dialects.mysql import INTEGER, BOOLEAN
+from sqlalchemy.types import Float, Integer, String, Date
 
 import hashlib
 
@@ -23,6 +24,7 @@ class Receipt(Base):
     fiber           ;食物繊維のスコア
     description     :概要
     """
+    __tablename__ = 'receipt'
     id = Column(
         'id',
         INTEGER(unsigned=True),
@@ -30,22 +32,22 @@ class Receipt(Base):
         autoincrement=True,
     )
     
-    date = deadline = Column(
+    date = Column(
         'date',
         DateTime,
         default=None,
         nullable=False,
     )
     
-    protein = Column('protein', INTEGER(unsigned=True))
-    carbon = Column('carbon', INTEGER(unsigned=True))
-    fat = Column('fat', INTEGER(unsigned=True))
-    mineral = Column('mineral', INTEGER(unsigned=True))
-    vitamin = Column('vitamin', INTEGER(unsigned=True))
-    fiber = Column('fiber', INTEGER(unsigned=True))
+    protein = Column('protein', Float)
+    carbon = Column('carbon', Float)
+    fat = Column('fat', Float)
+    mineral = Column('mineral', Float)
+    vitamin = Column('vitamin', Float)
+    fiber = Column('fiber', Float)
     description = Column('description', String(256))
     
-    def __init__(self, date: datetime, protein: int, carbon: int, fat: int, mineral: int, vitamin: int, fiber: int, description: str):
+    def __init__(self, date: datetime.date, protein: float, carbon: float, fat: float, mineral: float, vitamin: float, fiber: float, description: str):
         self.date = date
         self.protein = protein
         self.carbon = carbon
