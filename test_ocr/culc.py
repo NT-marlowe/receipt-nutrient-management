@@ -9,8 +9,8 @@ def culculation(text):
     protein = nutrition[0]
     carbon = nutrition[2]
     fat = nutrition[1]
-    mineral = sum(nutrition[4:16])//12
-    vitamin = sum(nutrition[16:29])//13
+    mineral = sum(nutrition[4:16])/12
+    vitamin = sum(nutrition[16:29])/13
     fiber = nutrition[3]
     nutrition_list = [protein, carbon, fat, mineral, vitamin, fiber]
     return nutrition_list

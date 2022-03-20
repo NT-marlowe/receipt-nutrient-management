@@ -17,13 +17,13 @@ from culc import culculation
 import uvicorn
 import db
 from  models import Receipt
-# import datetime
 from datetime import datetime
 from google.cloud import vision
 
 
 app = FastAPI()
 client = vision.ImageAnnotatorClient()
+# front側とback側のoriginを両方書く必要があるのかな？
 origins = [
     "http://localhost",
     "http://localhost:8080",
@@ -38,7 +38,6 @@ origins = [
 app.add_middleware(
     CORSMiddleware,
     allow_origins=origins,
-    # allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -96,6 +95,15 @@ def receiveimg(body: Body):
     db.session.add(receipt)
     db.session.commit()
     db.session.close()
+    n_dict = {
+        'protein':protein,
+        'carbon':carbon,
+        'fat':fat,
+        'mineral':mineral,
+        'vitamin':vitamin,
+        'fibar':vitamin
+        }
+    return JSONResponse(n_dict)
 
 
 
@@ -110,7 +118,7 @@ def viewsummery():
     mineral_score = 0
     vitamin_score = 0
     fiber_score = 0
-    count = 0
+    count = -1
     for r in receipt:
         protein_score += r.protein
         carbon_score += r.carbon
@@ -119,14 +127,16 @@ def viewsummery():
         vitamin_score += r.vitamin
         fiber_score += r.fiber
         count += 1
-    
+        print(r.mineral)
+
+    mag = 100
     summary = {
-        'protein':protein_score/count,
-        'carbon':carbon_score/count,
-        'fat':fat_score/count,
-        'mineral':mineral_score/count,
-        'vitamin':vitamin_score/count,
-        'fiber':fiber_score/count,
+        'protein':mag * protein_score/count,
+        'carbon':mag * carbon_score/count,
+        'fat':mag * fat_score/count,
+        'mineral':mag * mineral_score/count,
+        'vitamin':mag * vitamin_score/count,
+        'fiber':mag * fiber_score/count,
     }
     return JSONResponse(summary)
 
