@@ -11,7 +11,7 @@ if __name__ == "__main__":
         # テーブルを作成する
         Base.metadata.create_all(db.engine)
     receipt = Receipt(
-        date = datetime(2022, 3, 20, 0, 00, 00),
+        date = datetime.date(2022, 3, 20),
         protein = 0,
         carbon = 0,
         fat = 0,

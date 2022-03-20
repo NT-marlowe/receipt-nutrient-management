@@ -17,6 +17,7 @@ from culc import culculation
 import uvicorn
 import db
 from  models import Receipt
+# import datetime
 from datetime import datetime
 from google.cloud import vision
 
@@ -28,6 +29,8 @@ origins = [
     "http://localhost:8080",
     'http://localhost:8000',
     'http://localhost:3000',
+    'http://localhost:3000/summary',
+    'http://localhost:3000/new-image',
     'http://localhost:8000/uploadimg',
     'http://localhost:8000/summary',
 ]
@@ -80,14 +83,14 @@ def receiveimg(body: Body):
                     ])
     os.remove("./sample.jpg")
     n_list = culculation(output_text)
-    date = datetime.strptime(Body.date, '%Y-%m-%d %H:%M:%S')
+    date = datetime.strptime(body.date, '%Y-%m-%d')
     protein = n_list[0]
     carbon = n_list[1]
     fat = n_list[2]
     mineral = n_list[3]
     vitamin = n_list[4]
     fiber = n_list[5]
-    description = Body.description
+    description = body.description
     
     receipt = Receipt(date, protein, carbon, fat, mineral, vitamin, fiber, description)
     db.session.add(receipt)

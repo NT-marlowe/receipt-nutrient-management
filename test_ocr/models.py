@@ -1,4 +1,4 @@
-from datetime import datetime
+import datetime
 
 from db import Base
 
@@ -46,7 +46,7 @@ class Receipt(Base):
     fiber = Column('fiber', INTEGER(unsigned=True))
     description = Column('description', String(256))
     
-    def __init__(self, date: datetime, protein: int, carbon: int, fat: int, mineral: int, vitamin: int, fiber: int, description: str):
+    def __init__(self, date: datetime.date, protein: int, carbon: int, fat: int, mineral: int, vitamin: int, fiber: int, description: str):
         self.date = date
         self.protein = protein
         self.carbon = carbon
