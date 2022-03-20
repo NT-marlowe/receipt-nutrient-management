@@ -140,6 +140,12 @@ def viewsummery():
     }
     return JSONResponse(summary)
 
+@app.get('/history/')
+def viewhistory():
+    receipt = db.session.query(Receipt).all()
+    db.session.close()
+    return JSONResponse(receipt)
+
 
 
 if __name__ == "__main__":
