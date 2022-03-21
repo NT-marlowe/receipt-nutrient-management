@@ -31,8 +31,10 @@ origins = [
     'http://localhost:3000',
     'http://localhost:3000/summary',
     'http://localhost:3000/new-image',
+    'http://localhost:3000/history',
     'http://localhost:8000/uploadimg',
     'http://localhost:8000/summary',
+    'http://localhost:8000/history',
 ]
 
 app.add_middleware(
@@ -144,7 +146,25 @@ def viewsummery():
 def viewhistory():
     receipt = db.session.query(Receipt).all()
     db.session.close()
-    return JSONResponse(receipt)
+    hist_dict = []
+    for r in receipt:
+        l = {
+            "ID":r.id,
+            "date": str(r.date),       
+            "protein":r.protein,
+            "carbon":r.carbon,
+            "fat":r.fat,
+            "vitamin":r.vitamin,
+            "mineral": r.mineral,    
+            "fiber":r.fiber,
+            "description": r.description
+        }
+        
+        hist_dict.append(l)
+    
+    
+    # return JSONResponse(hist_dict)
+    return hist_dict
 
 
 

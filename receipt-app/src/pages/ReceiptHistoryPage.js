@@ -1,30 +1,24 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { useState, useEffect } from "react";
 import ReceiptHistoryList from "../components/receipts/ReceiptHistoryList";
 
-const getReceiptHistory = () => {
-  let histories;
-  axios
-    .get("dummy_API_URL")
-    .then((response) => {
-      histories = response.data;
-    })
-    .catch((error) => {
-      console.error(error);
-    });
-  return histories;
-};
-
-function ReceiptHistoryPage() {
+const ReceiptHistoryPage = () => {
   const [histories, setHistories] = useState([]);
-
   useEffect(() => {
-    setHistories(getReceiptHistory());
+    axios
+      .get("http://127.0.0.1:8000/history/")
+      .then((response) => {
+        setHistories(() => response.data);
+        // console.log("hisotries:");
+        // console.log(histories);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
   }, []);
 
   return (
-    <section>
+    <div>
       <h1>Receipt History</h1>
       {histories.length > 0 ? (
         <ReceiptHistoryList histories={histories} />
@@ -34,8 +28,8 @@ function ReceiptHistoryPage() {
           <p>Let's upload now!</p>
         </div>
       )}
-    </section>
+    </div>
   );
-}
+};
 
 export default ReceiptHistoryPage;

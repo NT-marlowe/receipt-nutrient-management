@@ -11,8 +11,8 @@ const SummaryPage = () => {
       .then((response) => {
         setNewSummary(response.data);
       })
-      .catch((err) => {
-        console.error(err);
+      .catch((error) => {
+        console.error(error);
       });
   }, []);
 
