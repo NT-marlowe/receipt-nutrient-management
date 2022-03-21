@@ -11,14 +11,14 @@ if __name__ == "__main__":
         # テーブルを作成する
         Base.metadata.create_all(db.engine)
     receipt = Receipt(
-        date = datetime.date(2022, 3, 20),
-        protein = 0,
+        date = datetime.date(2022, 3, 18),
+        protein = 3,
         carbon = 0,
-        fat = 0,
-        mineral = 0,
-        vitamin = 0,
-        fiber = 0,
-        description = "sample"
+        fat = 2,
+        mineral = 2,
+        vitamin = 2,
+        fiber = 1,
+        description = "金曜特売日"
     )
     db.session.add(receipt)
     db.session.commit()

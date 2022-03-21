@@ -1,4 +1,5 @@
 import base64
+from cv2 import AgastFeatureDetector
 from fastapi import FastAPI, File, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
 import json
@@ -146,17 +147,18 @@ def viewsummery():
 def viewhistory():
     receipt = db.session.query(Receipt).all()
     db.session.close()
+    mag = 100
     hist_dict = []
     for r in receipt:
         l = {
             "ID":r.id,
             "date": str(r.date),       
-            "protein":r.protein,
-            "carbon":r.carbon,
-            "fat":r.fat,
-            "vitamin":r.vitamin,
-            "mineral": r.mineral,    
-            "fiber":r.fiber,
+            "protein":r.protein * mag,
+            "carbon":r.carbon * mag,
+            "fat":r.fat * mag,
+            "vitamin":r.vitamin * mag,
+            "mineral": r.mineral * mag,    
+            "fiber":r.fiber * mag,
             "description": r.description
         }
         
