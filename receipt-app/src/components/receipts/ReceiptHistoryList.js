@@ -6,7 +6,7 @@ const ReceiptHistoryList = (props) => {
   if (props.histories === null) {
     return (
       <div>
-        <p>loading</p>
+        <p>loading...</p>
       </div>
     );
   }
@@ -18,11 +18,24 @@ const ReceiptHistoryList = (props) => {
           id={history.ID}
           date={history.date}
           description={history.description}
+          nutritions={{
+            protein: history.protein,
+            carbon: history.carbon,
+            fat: history.fat,
+            mineral: history.mineral,
+            vitamin: history.vitamin,
+            fiber: history.fiber,
+          }}
         />
       ))}
-      {/* hjoge */}
     </ul>
   );
 };
 
+// carbon={history.carbon}
+// fat={history.fat}
+// fiber={history.fiber}
+// mineral={history.mineral}
+// protein={history.protein}
+// vitamin={history.vitamin}
 export default ReceiptHistoryList;

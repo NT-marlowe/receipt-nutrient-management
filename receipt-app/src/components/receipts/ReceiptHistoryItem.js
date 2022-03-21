@@ -1,9 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import classes from "./ReceiptHistoryItem.module.css";
 import Card from "../ui/Card";
+import NutritionTable from "../nutrition/NutritionTable";
 
 const ReceiptHistoryItem = (props) => {
-  const handleToggleSummary = () => {};
+  const [tableIsOpen, setTableIsOpen] = useState(false);
+  const handleToggleSummary = () => {
+    setTableIsOpen(() => !tableIsOpen);
+  };
 
   return (
     <Card>
@@ -12,9 +16,14 @@ const ReceiptHistoryItem = (props) => {
           <h3>{props.date}</h3>
           <p>{props.description}</p>
         </div>
+        {tableIsOpen ? (
+          <div className={classes.table}>
+            <NutritionTable nutritions={props.nutritions} />
+          </div>
+        ) : null}
         <div className={classes.actions}>
           <button onClick={handleToggleSummary}>
-            open summary / close summary
+            {tableIsOpen ? "close summary" : "open summary"}
           </button>
         </div>
       </li>
