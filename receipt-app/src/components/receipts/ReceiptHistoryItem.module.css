@@ -44,3 +44,10 @@
 .actions button:active {
   background-color: #ffe2ed;
 }
+
+.table {
+  /* margin-right: 200px; */
+  /* margin-left: 143px; */
+  margin-left: 22.7%;
+  /* margin-right: 15%; */
+}
