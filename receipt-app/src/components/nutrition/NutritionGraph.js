@@ -43,7 +43,6 @@ const NutritionGraph = (props) => {
   if (props.data === null) {
     return <p>loading...</p>;
   }
-  console.log(props.data);
 
   const labels = Object.keys(props.data);
   const data = {

@@ -2,7 +2,7 @@ import datetime
 
 from db import Base
 
-from sqlalchemy import Column, String, DateTime, ForeignKey
+from sqlalchemy import Column, String, Date, ForeignKey
 from sqlalchemy.sql.functions import current_timestamp
 from sqlalchemy.dialects.mysql import INTEGER, BOOLEAN
 from sqlalchemy.types import Float, Integer, String, Date
@@ -34,7 +34,7 @@ class Receipt(Base):
     
     date = Column(
         'date',
-        DateTime,
+        Date,
         default=None,
         nullable=False,
     )
