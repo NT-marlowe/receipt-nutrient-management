@@ -8,9 +8,7 @@ const ReceiptHistoryPage = () => {
     axios
       .get("http://127.0.0.1:8000/history/")
       .then((response) => {
-        setHistories(() => response.data);
-        // console.log("hisotries:");
-        // console.log(histories);
+        setHistories(() => response.data.reverse());
       })
       .catch((error) => {
         console.error(error);

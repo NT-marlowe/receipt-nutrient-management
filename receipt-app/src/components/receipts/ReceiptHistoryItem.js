@@ -7,7 +7,6 @@ const ReceiptHistoryItem = (props) => {
 
   return (
     <Card>
-      {/* <div>Hello, your id is {props.id}.</div> */}
       <li className={classes.item}>
         <div className={classes.content}>
           <h3>{props.date}</h3>
