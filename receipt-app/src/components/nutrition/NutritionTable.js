@@ -15,9 +15,7 @@ const NutritionTable = (props) => {
     let oneRow = {};
     console.log(props.nutritions);
     for (let nutritionName in props.nutritions) {
-      oneRow[nutritionName] = (props.nutritions[nutritionName] * 100).toFixed(
-        2
-      );
+      oneRow[nutritionName] = Math.round(props.nutritions[nutritionName]);
     }
     return [oneRow];
   });

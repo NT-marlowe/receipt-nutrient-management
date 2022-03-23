@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import NutritionGraph from "../components/nutrition/NutritionGraph";
+import FoodRecommendation from "../components/nutrition/FoodRecommendation";
 // import fetchNutritionSummary from "../components/nutrition/fetchNutritionSummary";
 
 const SummaryPage = () => {
@@ -19,11 +20,11 @@ const SummaryPage = () => {
   return (
     <div>
       <h1>Summary</h1>
-      <ol>
-        <li>Upload an image of a receipt</li>
-        <li>You can find how much and what kind of nutritions you take</li>
-      </ol>
+      <h2>Your Score</h2>
       <NutritionGraph data={newSummary} />
+      <br />
+      <h2>Food Recommendation</h2>
+      <FoodRecommendation nutritions={newSummary} />
     </div>
   );
 };

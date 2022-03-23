@@ -121,7 +121,7 @@ def viewsummery():
     mineral_score = 0
     vitamin_score = 0
     fiber_score = 0
-    count = -1
+    count = 0
     for r in receipt:
         protein_score += r.protein
         carbon_score += r.carbon
@@ -132,7 +132,7 @@ def viewsummery():
         count += 1
         print(r.mineral)
 
-    mag = 100
+    mag = 20
     summary = {
         'protein':mag * protein_score/count,
         'carbon':mag * carbon_score/count,
@@ -147,7 +147,7 @@ def viewsummery():
 def viewhistory():
     receipt = db.session.query(Receipt).all()
     db.session.close()
-    mag = 100
+    mag = 20
     hist_dict = []
     for r in receipt:
         l = {
