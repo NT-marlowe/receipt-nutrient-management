@@ -29,6 +29,10 @@ const options = {
     title: {
       display: true,
       text: "Nutrition Summary",
+      font: {
+        size: 18,
+        weight: "bold",
+      },
     },
   },
   scales: {

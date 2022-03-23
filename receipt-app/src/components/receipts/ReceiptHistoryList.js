@@ -32,10 +32,4 @@ const ReceiptHistoryList = (props) => {
   );
 };
 
-// carbon={history.carbon}
-// fat={history.fat}
-// fiber={history.fiber}
-// mineral={history.mineral}
-// protein={history.protein}
-// vitamin={history.vitamin}
 export default ReceiptHistoryList;

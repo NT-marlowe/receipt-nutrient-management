@@ -23,7 +23,7 @@ const ReceiptHistoryItem = (props) => {
         ) : null}
         <div className={classes.actions}>
           <button onClick={handleToggleSummary}>
-            {tableIsOpen ? "close summary" : "open summary"}
+            {tableIsOpen ? "Close Summary" : "Open Summary"}
           </button>
         </div>
       </li>

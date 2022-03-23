@@ -12,7 +12,7 @@ const FoodRecommendation = (props) => {
         {names.map((name) => {
           if (props.nutritions[name] < threshold) {
             return (
-              <Card>
+              <Card key={Math.random().toString()}>
                 <li className={classes.item}>
                   <p>
                     <b>{translation[name]}</b>が不足しています．
