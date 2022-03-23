@@ -20,7 +20,10 @@ const SummaryPage = () => {
   return (
     <div>
       <h1>Summary</h1>
+      <h2>Your Score</h2>
       <NutritionGraph data={newSummary} />
+      <br />
+      <h2>Food Recommendation</h2>
       <FoodRecommendation nutritions={newSummary} />
     </div>
   );
